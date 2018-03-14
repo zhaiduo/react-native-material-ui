@@ -1,7 +1,10 @@
 /* eslint-disable import/no-unresolved, import/extensions */
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+//https://facebook.github.io/react-native/docs/touchablenativefeedback.html
 import { TouchableNativeFeedback, Platform } from 'react-native';
+//https://facebook.github.io/react-native/docs/touchableopacity.html
+//import { TouchableOpacity } from 'react-native';
 /* eslint-enable import/no-unresolved, import/extensions */
 
 const propTypes = {
@@ -27,9 +30,10 @@ class RippleFeedback extends PureComponent {
         // TouchableNativeFeedback.Ripple function on iOS devices
         const mapProps = { ...otherProps };
 
-        if (color && Platform.Version >= 21) {
+        //confirmed: this affects android performance
+        /*if (color && Platform.Version >= 21) {
             mapProps.background = TouchableNativeFeedback.Ripple(color, borderless);
-        }
+        }*/
 
         return (
             <TouchableNativeFeedback {...mapProps} >
